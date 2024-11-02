@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GuiaTuristico - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #F4F6FF;
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+        }
+        .content {
+            flex: 1;
+        }
+        .option-card {
+            background: #ffffff;
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .option-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .option-icon {
+            font-size: 4rem;
+            color: #40E0D0;
+            margin-bottom: 15px;
+        }
+        .option-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .option-card p {
+            color: #555555;
+            font-size: 1rem;
+        }
+        .welcome-title {
+            font-size: 2rem;
+            background: linear-gradient(to right, #009B77, #00A4CC, #002D62);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .welcome-message {
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 20px 0;
+            color: #333333;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Incluir o fragmento do header -->
+<header th:insert="~{fragments/header :: header}"></header>
+
+<main>
+    <!-- Carrossel de boas-vindas -->
+    <div th:insert="~{fragments/carousel}"></div>
+
+    <!-- Seção Principal -->
+    <div class="container mt-5 content">
+
+        <!-- Mensagem abaixo do carrossel -->
+        <div class="welcome-message mb-4">
+            <h2 class="welcome-title">Descubra o Melhor do GuiaTuristico! <span class="welcome-icon">🌐</span></h2>
+            <p>Estamos aqui para ajudar você a planejar a viagem dos seus sonhos. Explore novas experiências e crie memórias inesquecíveis!</p>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <!-- Gerenciar Lugares Turísticos -->
+            <div class="col-md-5 mb-4">
+                <a href="#" th:href="@{/places}" class="text-decoration-none">
+                    <div class="card option-card">
+                        <i class="fas fa-map-marker-alt option-icon mb-3"></i>
+                        <h3>Gerenciar Lugares Turísticos</h3>
+                        <p>Crie, edite e organize seus lugares favoritos.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Gerenciar Itinerários -->
+            <div class="col-md-5 mb-4">
+                <a href="#" th:href="@{/itineraries}" class="text-decoration-none">
+                    <div class="card option-card">
+                        <i class="fas fa-route option-icon mb-3"></i>
+                        <h3>Gerenciar Itinerários</h3>
+                        <p>Adicione, remova e gerencie seus itinerários.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Incluir o fragmento do footer -->
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
